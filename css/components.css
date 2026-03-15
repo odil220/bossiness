@@ -1,10 +1,10 @@
 /**
- * odil - Components
+ * RareLoop - Components
  * Reusable UI components: buttons, cards, header, modal, cart
  */
 
 /* ============================================
-   Header
+   Responsive Header
    ============================================ */
 .header {
   position: fixed;
@@ -868,3 +868,491 @@
 .form-textarea::placeholder {
   color: var(--color-text-muted);
 }
+
+/* ============================================
+   Responsive Styles
+   ============================================ */
+
+/* Tablet and below - Header */
+@media (max-width: 768px) {
+  .header-inner {
+    height: 70px;
+    padding: 0 var(--spacing-4);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  /* Hide desktop nav on tablet */
+  .nav {
+    display: none;
+  }
+  
+  /* Show mobile menu toggle */
+  .menu-toggle {
+    display: flex;
+  }
+  
+  .header-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Mobile - Header */
+@media (max-width: 480px) {
+  .header-inner {
+    height: 60px;
+    padding: 0 var(--spacing-3);
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .header-actions {
+    gap: var(--spacing-2);
+  }
+  
+  .header-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .header-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .badge {
+    font-size: 0.625rem;
+    min-width: 16px;
+    height: 16px;
+    padding: 0 4px;
+  }
+}
+
+/* ============================================
+   Mobile Navigation
+   ============================================ */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 280px;
+  height: 100vh;
+  background-color: var(--color-surface);
+  z-index: var(--z-modal);
+  transition: right var(--transition-base);
+  overflow-y: auto;
+  padding: var(--spacing-8) var(--spacing-6);
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-link {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  padding: var(--spacing-3) 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: var(--color-text-primary);
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-primary);
+  margin: 3px 0;
+  transition: all var(--transition-fast);
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: calc(var(--z-modal) - 1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    display: block;
+  }
+}
+
+/* ============================================
+   Responsive Product Cards
+   ============================================ */
+.product-card {
+  position: relative;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.product-card-link {
+  display: block;
+  text-decoration: none;
+}
+
+.product-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background-color: var(--color-background);
+}
+
+.product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-base);
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: var(--spacing-4);
+}
+
+.product-category {
+  display: block;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-1);
+}
+
+.product-title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--spacing-2) 0;
+}
+
+.product-price {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+}
+
+.product-badge {
+  position: absolute;
+  top: var(--spacing-2);
+  left: var(--spacing-2);
+  background-color: var(--color-accent);
+  color: white;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.product-actions {
+  position: absolute;
+  top: var(--spacing-2);
+  right: var(--spacing-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all var(--transition-base);
+}
+
+.product-card:hover .product-actions {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.product-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background-color: var(--color-surface);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.product-action-btn:hover {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+/* Responsive Product Cards */
+@media (max-width: 1024px) {
+  .product-actions {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-info {
+    padding: var(--spacing-3);
+  }
+  
+  .product-title {
+    font-size: var(--font-size-sm);
+  }
+  
+  .product-price {
+    font-size: var(--font-size-base);
+  }
+  
+  .product-badge {
+    font-size: 0.625rem;
+    padding: 2px 6px;
+  }
+  
+  .product-action-btn {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .product-action-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-info {
+    padding: var(--spacing-2);
+  }
+  
+  .product-category {
+    font-size: 0.625rem;
+  }
+  
+  .product-title {
+    font-size: 0.75rem;
+  }
+  
+  .product-price {
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ============================================
+   Responsive Buttons
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-3) var(--spacing-6);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-accent-dark);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-background);
+}
+
+.btn-lg {
+  padding: var(--spacing-4) var(--spacing-8);
+  font-size: var(--font-size-lg);
+}
+
+/* Responsive Buttons */
+@media (max-width: 768px) {
+  .btn {
+    padding: var(--spacing-3) var(--spacing-4);
+    font-size: var(--font-size-sm);
+  }
+  
+  .btn-lg {
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: var(--spacing-2) var(--spacing-3);
+    font-size: var(--font-size-xs);
+    width: 100%;
+  }
+  
+  .btn-lg {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+}
+
+/* ============================================
+   Responsive Modal
+   ============================================ */
+.product-modal {
+  display: flex;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-image-section {
+  flex: 1;
+  min-width: 50%;
+}
+
+.modal-image-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-details-section {
+  flex: 1;
+  padding: var(--spacing-6);
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-surface);
+  border: none;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background-color: var(--color-background);
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+  .product-modal {
+    flex-direction: column;
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .modal-image-section {
+    min-width: 100%;
+    height: 300px;
+  }
+  
+  .modal-details-section {
+    padding: var(--spacing-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-image-section {
+    height: 250px;
+  }
+  
+  .modal-details-section {
+    padding: var(--spacing-3);
+  }
+}
+
+/* ============================================
+   Touch-friendly interactions\n   ============================================ */\n@media (hover: none) {\n  .product-actions {\n    opacity: 1;\n    transform: translateX(0);\n  }\n  \n  .product-card:hover {\n    transform: none;\n  }\n  \n  .product-card:hover .product-image img {\n    transform: none;\n  }\n  \n  .btn:active,\n  .header-btn:active,\n  .product-action-btn:active {\n    transform: scale(0.95);\n  }\n}\n\n/* ============================================\n   Responsive Forms\n   ============================================ */\n.form-group {\n  margin-bottom: var(--spacing-4);\n}\n\n.form-label {\n  display: block;\n  font-size: var(--font-size-sm);\n  font-weight: var(--font-weight-medium);\n  color: var(--color-text-primary);\n  margin-bottom: var(--spacing-2);\n}\n\n.form-input,\n.form-textarea {\n  width: 100%;\n  padding: var(--spacing-3) var(--spacing-4);\n  font-family: var(--font-body);\n  font-size: var(--font-size-base);\n  color: var(--color-text-primary);\n  background-color: var(--color-background);\n  border: 1px solid var(--color-border);\n  border-radius: var(--radius-md);\n  transition: border-color var(--transition-fast);\n}\n\n.form-input:focus,\n.form-textarea:focus {\n  outline: none;\n  border-color: var(--color-accent);\n}\n\n/* Responsive Forms */\n@media (max-width: 768px) {\n  .form-input,\n  .form-textarea {\n    padding: var(--spacing-2) var(--spacing-3);\n    font-size: var(--font-size-sm);\n  }\n}\n\n/* ============================================\n   Responsive Footer\n   ============================================ */\n.footer {\n  background-color: var(--color-surface);\n  border-top: 1px solid var(--color-border);\n  padding: var(--spacing-8) 0;\n  margin-top: auto;\n}\n\n.footer-inner {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: var(--spacing-4);\n}\n\n.footer-brand {\n  font-family: var(--font-display);\n  font-size: var(--font-size-lg);\n  color: var(--color-text-primary);\n}\n\n.footer-links {\n  display: flex;\n  gap: var(--spacing-4);\n}\n\n.footer-link {\n  font-size: var(--font-size-sm);\n  color: var(--color-text-secondary);\n  text-decoration: none;\n  transition: color var(--transition-fast);\n}\n\n.footer-link:hover {\n  color: var(--color-text-primary);\n}\n\n.footer-copyright {\n  font-size: var(--font-size-sm);\n  color: var(--color-text-muted);\n}\n\n/* Responsive Footer */\n@media (max-width: 768px) {\n  .footer-inner {\n    flex-direction: column;\n    text-align: center;\n  }\n  \n  .footer-links {\n    order: -1;\n  }\n}\n\n@media (max-width: 480px) {\n  .footer {\n    padding: var(--spacing-6) 0;\n  }\n  \n  .footer-brand {\n    font-size: var(--font-size-base);\n  }\n  \n  .footer-link,\n  .footer-copyright {\n    font-size: var(--font-size-xs);\n  }\n}\nEOF
