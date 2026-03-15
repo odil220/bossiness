@@ -1,0 +1,291 @@
+/**
+ * RareLoop - CSS Variables & Base Styles
+ * Design system foundation with typography, colors, spacing
+ */
+
+/* ============================================
+   CSS Variables - Design System
+   ============================================ */
+:root {
+  /* Brand Colors - Cohesive Palette */
+  --color-primary: #2d3436;
+  --color-secondary: #636e72;
+  --color-accent: #00b894;
+  --color-accent-dark: #00a381;
+  --color-background: #f8f9fa;
+  --color-surface: #ffffff;
+  --color-border: #dfe6e9;
+  
+  /* Text Colors */
+  --color-text-primary: #2d3436;
+  --color-text-secondary: #636e72;
+  --color-text-muted: #b2bec3;
+  
+  /* Status Colors */
+  --color-success: #00b894;
+  --color-error: #d63031;
+  --color-warning: #fdcb6e;
+  
+  /* Typography - Font Sizes */
+  --font-size-xs: 0.625rem;    /* 10px - badges */
+  --font-size-sm: 0.75rem;     /* 12px - captions, labels */
+  --font-size-base: 0.875rem;  /* 14px - body text */
+  --font-size-md: 1rem;        /* 16px - default */
+  --font-size-lg: 1.125rem;   /* 18px - emphasized */
+  --font-size-xl: 1.25rem;    /* 20px - subheadings */
+  --font-size-2xl: 1.5rem;    /* 24px - h3 */
+  --font-size-3xl: 1.875rem;  /* 30px - h2 */
+  --font-size-4xl: 2.25rem;   /* 36px - h1 */
+  --font-size-5xl: 3rem;      /* 48px - hero */
+  --font-size-6xl: 3.75rem;   /* 60px - hero large */
+  --font-size-7xl: 4.5rem;    /* 72px - hero XL */
+  
+  /* Typography - Font Families */
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Typography - Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spacing */
+  --spacing-0: 0;
+  --spacing-1: 0.25rem;   /* 4px */
+  --spacing-2: 0.5rem;    /* 8px */
+  --spacing-3: 0.75rem;   /* 12px */
+  --spacing-4: 1rem;      /* 16px */
+  --spacing-5: 1.25rem;   /* 20px */
+  --spacing-6: 1.5rem;    /* 24px */
+  --spacing-8: 2rem;      /* 32px */
+  --spacing-10: 2.5rem;   /* 40px */
+  --spacing-12: 3rem;     /* 48px */
+  --spacing-16: 4rem;     /* 64px */
+  --spacing-20: 5rem;     /* 80px */
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal-backdrop: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+}
+
+/* ============================================
+   Base Styles
+   ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Typography - Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  line-height: 1.2;
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+/* Typography - Paragraphs */
+p {
+  margin: 0 0 var(--spacing-4);
+}
+
+/* Typography - Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-text-secondary);
+}
+
+/* Typography - Lists */
+ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+/* Typography - Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Typography - Buttons */
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Typography - Form Elements */
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input:focus, 
+textarea:focus, 
+select:focus {
+  outline: none;
+}
+
+/* Typography - Selection */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Typography - Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* ============================================
+   Dark Theme
+   ============================================ */
+[data-theme="dark"] {
+  --color-primary: #00b894;
+  --color-secondary: #81ecec;
+  --color-accent: #00b894;
+  --color-background: #1a1a2e;
+  --color-surface: #16213e;
+  --color-border: #2d3748;
+  
+  --color-text-primary: #f8f9fa;
+  --color-text-secondary: #b2bec3;
+  --color-text-muted: #636e72;
+}
+
+[data-theme="dark"] body {
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .header {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .product-card {
+  background-color: var(--color-surface);
+}
+
+[data-theme="dark"] .product-image {
+  background-color: var(--color-border);
+}
+
+[data-theme="dark"] .footer {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .cart-item {
+  background-color: var(--color-surface);
+}
+
+[data-theme="dark"] .value-card {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}

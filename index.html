@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RareLoop - Premium minimalist e-commerce">
+  <title>RareLoop</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS Modules -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/utilities.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">RareLoop</a>
+      
+      <nav class="nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="products.html" class="nav-link">Products</a></li>
+        </ul>
+      </nav>
+      
+      <div class="header-actions">
+        <button class="header-btn theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+          <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+          </svg>
+          <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a href="cart.html" class="header-btn" aria-label="Cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="21" r="1"></circle>
+            <circle cx="19" cy="21" r="1"></circle>
+            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"></path>
+          </svg>
+          <span class="badge hidden" id="cart-count">0</span>
+        </a>
+        <a href="#" class="header-btn wishlist-header-btn" id="wishlist-toggle" aria-label="Wishlist">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+          </svg>
+          <span class="badge hidden" id="wishlist-count">0</span>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav" id="mobile-nav">
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link active">Home</a></li>
+      <li><a href="products.html" class="mobile-nav-link">Products</a></li>
+    </ul>
+  </nav>
+
+  <!-- Overlay -->
+  <div class="overlay" id="overlay"></div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1 class="hero-title">RareLoop</h1>
+      <p class="hero-subtitle">Minimalist essentials for modern living. Curated with intention.</p>
+      <a href="products.html" class="btn btn-primary">View Products</a>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title text-center mb-lg">Accessories</h2>
+        
+        <!-- Featured Products - Images Only -->
+        <div class="grid grid-cols-4" id="featured-products-grid">
+          <!-- Product 1 -->
+          <article class="product-card" data-id="1" data-index="0">
+            <a href="product-detail.html?id=1" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0111.jpg" alt="Classic Black Skull Cap" loading="lazy">
+                <span class="product-badge">Best Seller</span>
+              </div>
+            </a>
+          </article>
+          <!-- Product 2 -->
+          <article class="product-card" data-id="2" data-index="1">
+            <a href="product-detail.html?id=2" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0112.jpg" alt="Gray Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+          <!-- Product 3 -->
+          <article class="product-card" data-id="3" data-index="2">
+            <a href="product-detail.html?id=3" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0113.jpg" alt="Navy Blue Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+          <!-- Product 4 -->
+          <article class="product-card" data-id="4" data-index="3">
+            <a href="product-detail.html?id=4" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0114.jpg" alt="Burgundy Skull Cap" loading="lazy">
+                <span class="product-badge">New</span>
+              </div>
+            </a>
+          </article>
+          <!-- Product 5 -->
+          <article class="product-card" data-id="5" data-index="4">
+            <a href="product-detail.html?id=5" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0115.jpg" alt="Forest Green Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+          <!-- Product 6 -->
+          <article class="product-card" data-id="6" data-index="5">
+            <a href="product-detail.html?id=6" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0116.jpg" alt="Charcoal Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+          <!-- Product 7 -->
+          <article class="product-card" data-id="7" data-index="6">
+            <a href="product-detail.html?id=7" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0117.jpg" alt="Camel Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+          <!-- Product 8 -->
+          <article class="product-card" data-id="8" data-index="7">
+            <a href="product-detail.html?id=8" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0118.jpg" alt="Black Skull Cap" loading="lazy">
+                <span class="product-badge">Classic</span>
+              </div>
+            </a>
+          </article>
+          <!-- Product 9 -->
+          <article class="product-card" data-id="9" data-index="8">
+            <a href="product-detail.html?id=9" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0120.jpg" alt="Tan Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+          <!-- Product 10 -->
+          <article class="product-card" data-id="10" data-index="9">
+            <a href="product-detail.html?id=10" class="product-card-link">
+              <div class="product-image">
+                <img src="image/IMG_0121.jpg" alt="Olive Skull Cap" loading="lazy">
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">RareLoop</span>
+        <nav class="footer-links">
+          <a href="#" class="footer-link">Privacy</a>
+          <a href="#" class="footer-link">Terms</a>
+        </nav>
+        <span class="footer-copyright">© 2026 RareLoop. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Product Modal -->
+  <div class="product-modal-overlay" id="product-modal">
+    <div class="product-modal">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 6 6 18"></path>
+          <path d="m6 6 12 12"></path>
+        </svg>
+      </button>
+      
+      <div class="modal-image-section">
+        <img src="" alt="Product" class="modal-main-image" id="modal-main-image">
+      </div>
+      
+      <div class="modal-details-section">
+        <span class="modal-product-category" id="modal-category">Accessories</span>
+        <h2 class="modal-product-name" id="modal-name">Skull Cap</h2>
+        <span class="modal-product-price" id="modal-price">$8.00</span>
+        
+        <p style="font-size: var(--font-size-base); color: var(--color-text-secondary); margin-top: var(--spacing-4);">All Variants:</p>
+        <div class="modal-all-products" id="modal-all-products"></div>
+        
+        <div class="modal-quantity">
+          <span class="modal-quantity-label">Quantity:</span>
+          <div class="modal-quantity-controls">
+            <button class="modal-quantity-btn" id="modal-qty-minus" aria-label="Decrease quantity">−</button>
+            <span class="modal-quantity-value" id="modal-quantity">1</span>
+            <button class="modal-quantity-btn" id="modal-qty-plus" aria-label="Increase quantity">+</button>
+          </div>
+        </div>
+        
+        <div class="modal-actions">
+          <button class="btn btn-primary" id="modal-add-to-cart">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/utilities.js"></script>
+  <script src="js/state.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/events.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/components.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
